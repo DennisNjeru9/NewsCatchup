@@ -1,3 +1,4 @@
+from __future__ import with_statement
 import urllib.request,json
 from .models import Source,Article
 
@@ -32,6 +33,28 @@ def get_news(category):
     return news_results
 
 
+def get_news_article(title):
+    get_news_details_url = base_url.format(title,api_key)
+
+    with urllib.request.urlopen(get_news_details_url) as url:
+        news_details_data = url.read()
+        news_details_response = json.loads(news_details_data)
+
+        news_article_object = None
+
+        if news_details_response:
+            author = news_details_response.get('author')
+            title = news_details_response.get('title')
+            description = news_details_response.get('description')
+            path = news_details_response.get('url')
+            poster = news_details_response.get('urlToImage')
+            publishedAt = news_details_response.get('publishedAt')
+
+            news_article_object = Article(author,title,description,path,poster,publishedAt)
+            
+    return news_article_object
+
+
 def process_results(news_list):
     '''
     Function that processes the news result and transform them to a list of objects.
@@ -49,10 +72,9 @@ def process_results(news_list):
         description = news_item.get('description')
         url = news_item.get('url')
         language = news_item.get('language')
-
-        if id:
-            news_object = Source(id,name,description,url,language)
-            news_results.append(news_object)
+        
+        news_object = Source(id,name,description,url,language)
+        news_results.append(news_object)
 
     return news_results
 
