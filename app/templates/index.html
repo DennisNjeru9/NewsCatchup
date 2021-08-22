@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+
+
+{% block content%}
+
+    <div class="container">
+        <!-- General News -->
+        <div class="row">
+            <h3>General News</h3>
+            <ul>
+                {{macro.displayNewsList(general)}}
+            </ul>
+        </div>
+
+        <!-- Business News -->
+        <div class="row">
+            <h3>Business News</h3>
+            <ul>
+                {{macro.displayNewsList(business)}}
+            </ul>
+        </div>
+
+        <!-- Health News -->
+        <div class="row">
+            <h3>Health News</h3>
+            <ul>
+                {{macro.displayNewsList(Health)}}
+            </ul>
+        </div>
+
+        <!-- Science News -->
+        <div class="row">
+            <h3>Science News</h3>
+            <ul>
+                {{macro.displayNewsList(science)}}
+            </ul>
+        </div>
+
+        <!-- Sports News -->
+        <div class="row">
+            <h3>Sports News</h3>
+            <ul>
+                {{macro.displayNewsList(sports)}}
+            </ul>
+        </div>
+
+        <!-- Technology News -->
+        <div class="row">
+            <h3>Technology News</h3>
+            <ul>
+                {{macro.displayNewsList(technology)}}
+            </ul>
+        </div>
+
+    </div>
+
+<!-- End Block -->
+{% endblock %}
