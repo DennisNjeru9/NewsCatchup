@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% import 'macros.html' as macro %}
+
+{% block title %} News Results {% endblock %}
+{% block head %}
+    {{super()}}
+    <style type="text/css"></style>
+{% endblock %}
+
+<!-- Content block -->
+{% block content %}
+<div class="container">
+    <h2>Top Headlines</h2>
+    <ul>
+        {{ macro.displayNewsList(news) }}
+    </ul>
+</div>
+
+<div class="container">
+    <h2>All news</h2>
+    <ul>
+        {{ macro.displayNewsList(all_articles) }}
+    </ul>
+</div>
+
+{% endblock %}

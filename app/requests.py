@@ -1,18 +1,17 @@
-from flask import request
 from .models import Source,Article
-from newsapi import NewsApiClient
 
 
-# #Getting api key
-# newsapi = None
 
-# #Getting the news source base url
-# base_url = None
+#Getting api key
+api_key = None
 
-# def configure_request(app):
-#     global base_url,newsapi
-#     base_url = app.config["NEWS_API_BASE_URL"]
-#     newsapi = NewsApiClient(api_key=app.config['API_KEY'])
+#Getting the news source base url
+base_url = None
+
+def configure_request(app):
+    global base_url,api_key
+    base_url = app.config["NEWS_API_BASE_URL"]
+    api_key = app.config['API_KEY']
 
 
 # # def get_sources():
