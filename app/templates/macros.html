@@ -1,9 +1,9 @@
-{% macro displaySourceList(source_list) %}
+{% macro displayNews(news) %}
 
-    {% for source in source_list %}
+    {% for post in news %}
         <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 news-card">
             <li class="text-center">
-                <a href="/source/{{source.id}}">{{ source.name | truncate(15) }}</a>
+                <a href="/article/{{article.author}}">{{ article.title | truncate(15) }}</a>
             </li>
         </div>
     {% endfor %}

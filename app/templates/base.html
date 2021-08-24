@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block head %}
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initia;-scale=1, shrink-to-fit=no">
+            {% block styles %}
+                {{ bootstrap.load_css() }}
+            {% endblock %}
+            <title>Welcome to the best news catchup website</title>
+        {% endblock %}
+    </head>
+    <body>
+        {% from 'bootstrap/nav.html' import render_nav_item %}
+        <!--Navbar block-->
+        {% block navbar %}
+            {% include 'navbar.html' %}
+        {% endblock %}
 
+        <div id="content">
+            {% block content%}
+                
+            {% endblock %}
+        </div>
+        <div>
+            {% block scripts %}
+                {{ bootstrap.load_js() }}
+            {% endblock %}
+        </div> 
+    </body>
+</html>
