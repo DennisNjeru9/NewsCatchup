@@ -1,9 +1,20 @@
-{% macro displayNews(news) %}
+{% macro displayNewsList(news_list) %}
 
-    {% for post in news %}
-        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 news-card">
+    {% for post in news_list %}
+        <li>
+            <a href="/sources/{{post['url']}}">{{post['name']| truncate(20)}}</a>
+            <p>{{post['description']}}</p>
+        </li>
+    {% endfor %}
+
+    {% for post in news_list %}
+        <div class="container news-card">
+            <img src="{{post['urlToImage']}}" alt="{{post['title']}} news-image" class="img-responsive">
             <li class="text-center">
-                <a href="/article/{{article.author}}">{{ article.title | truncate(15) }}</a>
+                <h2>{{post['title']}}</h2>
+                <i>{{post['publishedAt']}}</i>
+                <p>{{post['description']}}</p>
+                <a href="/news/{{post['url']}}">Read article</a>
             </li>
         </div>
     {% endfor %}
