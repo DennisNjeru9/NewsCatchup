@@ -4,14 +4,18 @@
 <!--Content block-->
 {% block content %}
     <!--Business News-->
-    
-    <form action='/news/' method="POST">
-        <input type="text" placeholder="Enter a search term" name="keyword">
-    </form>
+    <div class="container">
+        <form action='/news/' method="POST">
+            <input type="text" placeholder="Enter a search term" name="keyword" class="form-control">
+            <input type="submit" value="Submit" class="btn btn-default">
+        </form>
+    </div>
 
-    <h1>Your Favorite News Sources</h1>
-    <ul>
-        {{ macro.displayNewsList(sources) }}
-    </ul>
+    <div class="container">
+        <h1>Your Favorite News Sources</h1>
+        <ul>
+            {{ macro.displayNewsList(sources) }}
+        </ul>
+    </div>
     
 {% endblock %}
