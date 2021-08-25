@@ -39,7 +39,7 @@ def get_sources():
 
 
 
-def get_articles(source_id):
+def get_articles(source):
     '''
     Function that gets a list of articles from a particular source
 
@@ -49,19 +49,39 @@ def get_articles(source_id):
         article_results: list of news articles in the specific news source.
     '''
 
-    with rq.get(article_url.format(source_id,my_api_key))as data:
+    with rq.get(article_url.format(source,my_api_key))as data:
         data = data.json()
         article_list =data.get('articles')
         articles_results = []
-        for article_item in article_list:
-            author = article_item.get('author')
-            title = article_item.get('title')
-            description = article_item.get('description')
-            url = article_item.get('url')
-            urlToImage = article_item.get('urlToImage')
-            publishedAt = article_item.get('publishedAt')
+        for article in article_list:
+            author = article.get('author')
+            title = article.get('title')
+            description = article.get('description')
+            url = article.get('url')
+            urlToImage = article.get('urlToImage')
+            publishedAt = article.get('publishedAt')
 
     article_object = Article(author,title,description,url,urlToImage,publishedAt)
     articles_results.append(article_object)
 
     return articles_results
+
+def search_article(q):
+    search_article_url = 'https://newsapi.org/v2/everything?q={}&apiKey={}'
+    with rq.get(search_article_url.format(q,my_api_key))as data:
+        data = data.json()
+        search_article_list =data.get('articles')
+        search_articles_results = []
+        for article in search_article_list:
+            author = article.get('author')
+            title = article.get('title')
+            description = article.get('description')
+            url = article.get('url')
+            urlToImage = article.get('urlToImage')
+            publishedAt = article.get('publishedAt')
+
+    search_article_object = Article(author,title,description,url,urlToImage,publishedAt)
+    search_articles_results.append(search_article_object)
+
+    return search_articles_results
+

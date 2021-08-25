@@ -3,7 +3,7 @@
     {% for source in source_list %}
         <div class="container">
             <li>
-                <a href="/news/{{source.url}}">{{ source.name| truncate(20) }}</a>
+                <a href="{{source.url}}">{{ source.name| truncate(20) }}</a>
                 <p>{{ source.description }}</p>
             </li>
         </div>
@@ -13,12 +13,13 @@
 
 {% macro displayArticleList(article_list) %}
 
-    {% for article in articles_list %}
+    {% for article in article_list %}
         <div class="container news-card">
-            <img src="{{article.urlToImage}}" alt="{{article.title}} news-image" class="img-responsive">
+            <img src="{{article.urlToImage}}" alt="news-image" class="img-responsive">
             <li class="text-center">
                 <h2>{{ article.title }}</h2>
-                <i>{{ particle.publishedAt }}</i>
+                <p> Written by: {{ article.author }}</p>
+                <i>Published on: {{ article.publishedAt }}</i>
                 <p>{{ article.description }}</p>
                 <a href="/news/{{article.url}}">Read article</a>
             </li>
