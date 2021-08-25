@@ -1,4 +1,4 @@
-import requests as rq
+import requests as rq,json
 from .models import Source,Article
 
 
@@ -39,20 +39,29 @@ def get_sources():
 
 
 
-# # def get_top_headlines():
-# #     top_headlines = newsapi.get_top_headlines()
+def get_articles(source_id):
+    '''
+    Function that gets a list of articles from a particular source
 
+    Args: 
+        source_id: The id of a specific result.
+    Returns:
+        article_results: list of news articles in the specific news source.
+    '''
 
-# # def process_results(source_list):
-# #     source_results = []
-# #     for source_item in source_list:
-# #         id = source_item.get('id')
-# #         name = source_item.get('name')
-# #         description = source_item.get('description')
-# #         url = source_item.get('url')
-# #         language = source_item.get('language')
+    with rq.get(article_url.format(source_id,my_api_key))as data:
+        data = data.json()
+        article_list =data.get('articles')
+        articles_results = []
+        for article_item in article_list:
+            author = article_item.get('author')
+            title = article_item.get('title')
+            description = article_item.get('description')
+            url = article_item.get('url')
+            urlToImage = article_item.get('urlToImage')
+            publishedAt = article_item.get('publishedAt')
 
-# #     source_object = Source(id,name,description,url,language)
-# #     source_results.append(source_object)
+    article_object = Article(author,title,description,url,urlToImage,publishedAt)
+    articles_results.append(article_object)
 
-# #     return source_results
+    return articles_results
