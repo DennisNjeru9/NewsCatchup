@@ -25,14 +25,14 @@ class Article:
     '''
     News Article to define News Article object.
     '''
-    def __init__(self,author,title,description,path,poster,publishedAt):
+    def __init__(self,author,title,description,url,urlToImage,publishedAt):
         '''
         
         '''
         self.author = author
         self.title = title
         self.description = description
-        self.path = path
-        self.poster = poster
+        self.url = url
+        self.urlToImage = urlToImage
         self.publishedAt = publishedAt
         
