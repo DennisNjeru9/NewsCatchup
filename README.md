@@ -12,6 +12,7 @@ NewsCatchup enables users to check for news and read articles from different sou
 * Next you should open the directory in your terminal and activate the virtual environment. 
 * Run the ./start.sh command to run the application on the local server
 * Open the link on the local browser
+* Add name of dynamic route and source id (that is /news/{bbc-news or abc-news}) to find top headlines
 
 ## Known Bugs
 The current application contains no bugs
@@ -21,6 +22,9 @@ The current application contains no bugs
 * Flask
 * HTML
 * CSS
+
+##Application website
+Link: https://newscatchup.herokuapp.com/
 
 ## Suport and Contact Details
 Email: dennis.njeru@student.moringaschool.com
