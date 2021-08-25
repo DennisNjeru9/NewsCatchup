@@ -10,9 +10,10 @@ NewsCatchup enables users to check for news and read articles from different sou
 * Visual Studio (VS) Code or Atom Editor will be essential.
 * One must also clone the github repository.
 * Next you should open the directory in your terminal and activate the virtual environment. 
-* Run the ./start.sh command to run the application on the local server
-* Open the link on the local browser
-* Add name of dynamic route and source id (that is /news/{bbc-news or abc-news}) to find top headlines
+* Run the ./start.sh command to run the application on the local server.
+* Open the link on the local browser.
+* Add name of dynamic route and source id (that is /news/{bbc-news or abc-news}) to find top headlines.
+* Add name of dynamic route (search/) and keyword (e.g bitcoin) to find specific articles and click the link (read article) to read article.
 
 ## Known Bugs
 The current application contains no bugs
